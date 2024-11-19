@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.20)
 
 # You can set the name of your project here
 project(ImageEditor)
+
+# find_package(OpenCV REQUIRED)
+# include_directories(${OpenCV_INCLUDE_DIRS})
+
+# target_link_libraries(ImageEditor PRIVATE sil ${OpenCV_LIBS})
+
 add_executable(${PROJECT_NAME})
 
 # Choose your C++ version
