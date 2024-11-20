@@ -1,6 +1,7 @@
 #include <sil/sil.hpp>
 #include <iostream>
 #include "../lib/random.hpp"
+#include <algorithm>
 
 void onlyGreen(sil::Image &image)
 {
@@ -413,21 +414,21 @@ void water(sil::Image &image)
 
 void glitch(sil::Image &image)
 {
-    int numberGlitch{random_int(10, 50)};
+    int numberGlitch{random_int(10, 250)};
 
     for (int i = 0; i < numberGlitch; i++)
     {
-        int rectangleWidth = rand() % 20;
-        int rectangleHeight = rand() % 20;
+        int rectangleWidth{rand() % 20};
+        int rectangleHeight{rand() % 20};
 
         if (rectangleWidth > image.width() || rectangleHeight > image.height())
             continue;
 
-        int positionRectangleX1 = rand() % (image.width() - rectangleWidth);
-        int positionRectangleY1 = rand() % (image.height() - rectangleHeight);
+        int positionRectangleX1{rand() % (image.width() - rectangleWidth)};
+        int positionRectangleY1{rand() % (image.height() - rectangleHeight)};
 
-        int positionRectangleX2 = rand() % (image.width() - rectangleWidth);
-        int positionRectangleY2 = rand() % (image.height() - rectangleHeight);
+        int positionRectangleX2{rand() % (image.width() - rectangleWidth)};
+        int positionRectangleY2{rand() % (image.height() - rectangleHeight)};
 
         for (int x = 0; x < rectangleWidth; x++)
         {
@@ -439,9 +440,24 @@ void glitch(sil::Image &image)
     }
 }
 
+
+
+void pixelSorting(sil::Image &image)
+{
+    for (int y{0}; y < image.height(); y++)
+    {
+
+        std::vector<glm::vec3> v{/*...*/};
+        std::sort(v.begin(), v.end(), [](glm::vec3 const &color1, glm::vec3 const &color2)
+                  {
+                      brightness(color1) < brightness(color2); // Trie selon la luminosité des couleurs (NB : c'est à vous de coder la fonction `brightness`)
+                  });
+    }
+}
+
 int main()
 {
     sil::Image image{"images/logo.png"};
-    mosaiqueMirror(image);
+    pixelSorting(image);
     image.save("output/pouet.png");
 }
