@@ -70,7 +70,6 @@ void animationCircle(sil::Image &image)
             {
                 for (int y{0}; y < image.height(); y++)
                 {
-                    
                 }
             }
         }
@@ -156,6 +155,44 @@ void glitch(sil::Image &image)
 float luminance(glm::vec3 const &color)
 {
     return 0.2126f * color.r + 0.7152f * color.g + 0.0722f * color.b;
+}
+
+void pixelSortingFromGlitch(sil::Image &image)
+{
+    int numberGlitch{random_int(200, 250)};
+
+    for (int i = 0; i < numberGlitch; i++)
+    {
+        int rectangleWidth{rand() % 70};
+        int rectangleHeight{1};
+
+        if (rectangleWidth > image.width() || rectangleHeight > image.height())
+            continue;
+
+        int positionRectangleX1{rand() % (image.width() - rectangleWidth)};
+        int positionRectangleY1{rand() % (image.height() - rectangleHeight)};
+
+        int positionRectangleX2{rand() % (image.width() - rectangleWidth)};
+        int positionRectangleY2{rand() % (image.height() - rectangleHeight)};
+
+        for (int x = 0; x < rectangleWidth; x++)
+        {
+            for (int y = 0; y < rectangleHeight; y++)
+            {
+                std::vector<glm::vec3> pixels;
+                for (int j = 0; j < rectangleWidth; ++j)
+                {
+                    pixels.push_back(image.pixel(positionRectangleX1 + j, positionRectangleY1));
+                }
+                std::sort(pixels.begin(), pixels.end(), [](glm::vec3 const &color1, glm::vec3 const &color2)
+                          { return luminance(color1) < luminance(color2); });
+                for (int j = 0; j < rectangleWidth; ++j)
+                {
+                    image.pixel(positionRectangleX1 + j, positionRectangleY1) = pixels[j];
+                }
+            }
+        }
+    }
 }
 
 void pixelSorting(sil::Image &image)

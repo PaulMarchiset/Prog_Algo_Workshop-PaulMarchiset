@@ -8,8 +8,8 @@ void water(sil::Image &image)
     {
         for (int y{0}; y < image.height(); y++)
         {
-            int waterX{random_int(0, 10)};
-            int waterY{random_int(0, 10)};
+            int waterX{random_int(0, 5)};
+            int waterY{random_int(0, 5)};
 
             if (x + waterX >= image.width())
             {
@@ -31,7 +31,32 @@ void water(sil::Image &image)
 
 int main()
 {
-    sil::Image image{"images/logo.png"};
-    noise(image);
-    image.save("output/noise.png");
+    sil::Image image{"images/photo.jpg"};
+    dithering(image);
+    image.save("output/dithering.jpg");
 }
+
+
+// void printMatrix(const std::vector<std::vector<float>>& matrix) {
+//     for (const auto& row : matrix) {
+//         for (const auto& value : row) {
+//             std::cout << value << "\t";
+//         }
+//         std::cout << "\n";
+//     }
+// }
+
+// int main() {
+
+//     int bayer_n = 4;
+
+//     try {
+//         auto bayerMatrix = generateBayerMatrix(bayer_n);
+//         std::cout << "Bayer Matrix of size " << bayer_n << "x" << bayer_n << ":\n";
+//         printMatrix(bayerMatrix);
+//     } catch (const std::invalid_argument& e) {
+//         std::cerr << "Error: " << e.what() << "\n";
+//     }
+
+//     return 0;
+// }

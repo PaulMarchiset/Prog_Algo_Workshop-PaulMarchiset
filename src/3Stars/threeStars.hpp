@@ -14,6 +14,8 @@ void glitch(sil::Image &image);
 
 void luminance(sil::Image &image);
 
+void pixelSortingFromGlitch(sil::Image &image);
+
 void pixelSorting(sil::Image &image);
 
 void rgb_to_lab(sil::Image &image);

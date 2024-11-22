@@ -10,6 +10,6 @@ void mosaiqueMirror(sil::Image &image);
 
 void fractalMandelbrot(sil::Image &image);
 
-void dithering(sil::Image &image);
+std::vector<std::vector<float>> generateBayerMatrix(int bayer_n);
 
-void normalize(sil::Image &image);
+void dithering(sil::Image &image);
