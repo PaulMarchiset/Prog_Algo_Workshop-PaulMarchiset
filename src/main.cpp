@@ -35,28 +35,3 @@ int main()
     dithering(image);
     image.save("output/dithering.jpg");
 }
-
-
-// void printMatrix(const std::vector<std::vector<float>>& matrix) {
-//     for (const auto& row : matrix) {
-//         for (const auto& value : row) {
-//             std::cout << value << "\t";
-//         }
-//         std::cout << "\n";
-//     }
-// }
-
-// int main() {
-
-//     int bayer_n = 4;
-
-//     try {
-//         auto bayerMatrix = generateBayerMatrix(bayer_n);
-//         std::cout << "Bayer Matrix of size " << bayer_n << "x" << bayer_n << ":\n";
-//         printMatrix(bayerMatrix);
-//     } catch (const std::invalid_argument& e) {
-//         std::cerr << "Error: " << e.what() << "\n";
-//     }
-
-//     return 0;
-// }
