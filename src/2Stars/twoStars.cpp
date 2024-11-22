@@ -43,7 +43,6 @@ void noise(sil::Image &image)
             case 2:
                 image.pixel(x, y).b = image.pixel(x, y).b + (rand() % 2) / 2.f;
                 break;
-
             default:
                 break;
             };

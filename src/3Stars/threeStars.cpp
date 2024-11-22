@@ -1,4 +1,5 @@
 #include "threeStars.hpp"
+#include "opencv2/opencv.hpp"
 
 void circus(sil::Image &image)
 {
@@ -62,23 +63,17 @@ void animationCircle(sil::Image &image)
                 };
             }
         }
-        //     if (i == 0) {
-        //         // generate text "saucisse" on the first frame with opencv
-        //         cv::Mat mat(image.height(), image.width(), CV_8UC3);
+        if (i == 0)
+        {
 
-        //         for (int x{0}; x < image.width(); x++)
-        //         {
-        //             for (int y{0}; y < image.height(); y++)
-        //             {
-        //                 mat.at<cv::Vec3b>(y, x)[0] = image.pixel(x, y).b * 255;
-        //                 mat.at<cv::Vec3b>(y, x)[1] = image.pixel(x, y).g * 255;
-        //                 mat.at<cv::Vec3b>(y, x)[2] = image.pixel(x, y).r * 255;
-        //             }
-        //         }
-        //         cv::putText(mat, "saucisse", cv::Point(10, 50), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
-        //         cv::imwrite("output/animation/animation_cercle_" + std::to_string(i) + ".jpg", mat);
-
-        // }
+            for (int x{0}; x < image.width(); x++)
+            {
+                for (int y{0}; y < image.height(); y++)
+                {
+                    
+                }
+            }
+        }
 
         new_image.save("output/animation/animation_cercle_" + std::to_string(i) + ".jpg");
     }
@@ -177,7 +172,6 @@ void pixelSorting(sil::Image &image)
         }
     }
 }
-
 
 void rgb_to_lab(sil::Image &image)
 {

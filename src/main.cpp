@@ -29,10 +29,9 @@ void water(sil::Image &image)
     new_image.save("output/water.png");
 }
 
-
 int main()
 {
     sil::Image image{"images/logo.png"};
-    dithering(image);
-    image.save("output/pouet.png");
+    noise(image);
+    image.save("output/noise.png");
 }
