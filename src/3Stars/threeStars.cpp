@@ -1,7 +1,7 @@
 #include "threeStars.hpp"
 #include "opencv2/opencv.hpp"
 
-void circus(sil::Image &image)
+void disque(sil::Image &image)
 {
     int rayon{100};
     int centreX{image.width() / 2};
@@ -20,7 +20,7 @@ void circus(sil::Image &image)
     }
 }
 
-void disque(sil::Image &image)
+void circus(sil::Image &image)
 {
     int rayon{100};
     int centreX{image.width() / 2};

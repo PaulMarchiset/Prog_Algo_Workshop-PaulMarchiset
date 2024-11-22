@@ -67,10 +67,10 @@ void mosaiqueMirror(sil::Image &image)
     new_image.save("output/mosaiqueMirror.png");
 }
 
-void fractalMandelbrot(sil::Image &image)
+void fractaleMandelbrot(sil::Image &image)
 {
 
-    int maxInteration{1000};
+    int maxIteration{1000};
 
     for (int x{0}; x < image.width(); x++)
     {
@@ -79,18 +79,18 @@ void fractalMandelbrot(sil::Image &image)
             std::complex<float> c{(static_cast<float>(x) / image.width() * 3.f - 2.f), (static_cast<float>(y) / image.height() * 3.f - 1.5f)};
             std::complex<float> z{0.f, 0.f};
 
-            for (int i{0}; i < maxInteration && std::abs(z) < 2.f; i++)
+            for (int i{0}; i < maxIteration && std::abs(z) < 2.f; i++)
             {
                 z = z * z + c;
 
-                if (i == maxInteration - 1)
+                if (i == maxIteration - 1)
                 {
                     image.pixel(x, y) = glm::vec3{1.f};
                     break;
                 }
                 else
                 {
-                    float color = static_cast<float>(i) / maxInteration;
+                    float color = static_cast<float>(i) / maxIteration;
                     image.pixel(x, y) = glm::vec3{color, color, color};
                 }
             }
@@ -113,9 +113,9 @@ std::vector<std::vector<float>> generateBayerMatrix(int bayer_n)
             for (int j = 0; j < size; ++j)
             {
                 newMatrix[i][j] = (bayerMatrix[i][j] * pow(bayerMatrix.size() * 2, 2) )  / pow(bayerMatrix.size() * 2, 2) ;
-                newMatrix[i][j + size] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) + 2) / pow(bayerMatrix.size() * 2, 2)  ;
-                newMatrix[i + size][j] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) + 3) / pow(bayerMatrix.size() * 2, 2)  ;
-                newMatrix[i + size][j + size] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) +1 ) / pow(bayerMatrix.size() * 2, 2) ;
+                newMatrix[i][j + size] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) + 2) / pow(bayerMatrix.size() * 2, 2);
+                newMatrix[i + size][j] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) + 3) / pow(bayerMatrix.size() * 2, 2);
+                newMatrix[i + size][j + size] = (bayerMatrix[i][j]  * pow(bayerMatrix.size() * 2, 2) +1 ) / pow(bayerMatrix.size() * 2, 2);
             }
         }
         bayerMatrix = std::move(newMatrix);

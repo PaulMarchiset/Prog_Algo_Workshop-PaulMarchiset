@@ -33,5 +33,5 @@ int main()
 {
     sil::Image image{"images/photo.jpg"};
     dithering(image);
-    image.save("output/dithering.jpg");
+    image.save("output/dithering8.png");
 }

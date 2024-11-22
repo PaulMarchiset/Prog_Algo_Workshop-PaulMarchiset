@@ -8,7 +8,7 @@ void mosaique(sil::Image &image);
 
 void mosaiqueMirror(sil::Image &image);
 
-void fractalMandelbrot(sil::Image &image);
+void fractaleMandelbrot(sil::Image &image);
 
 std::vector<std::vector<float>> generateBayerMatrix(int bayer_n);
 
