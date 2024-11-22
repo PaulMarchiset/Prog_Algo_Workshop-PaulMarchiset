@@ -1,5 +1,34 @@
 # 🌮 Paul Marchiset - Prog et algo
 
+Table des matières :
+
+- [🌮 Paul Marchiset - Prog et algo](#-paul-marchiset---prog-et-algo)
+  - [1 étoile](#1-étoile)
+    - [Garder le vert et Échanger les canaux](#garder-le-vert-et-échanger-les-canaux)
+    - [Noir et Blanc](#noir-et-blanc)
+    - [Négatif et Dégradé noir et blanc](#négatif-et-dégradé-noir-et-blanc)
+  - [2 étoiles](#2-étoiles)
+    - [Miroir](#miroir)
+    - [Bruit](#bruit)
+    - [Rotation](#rotation)
+    - [RGB Split](#rgb-split)
+    - [Luminosité](#luminosité)
+  - [3 étoiles](#3-étoiles)
+    - [Cercle et Disque](#cercle-et-disque)
+    - [Animation](#animation)
+    - [Rosace](#rosace)
+    - [Glitch](#glitch)
+    - [Tri de pixel](#tri-de-pixel)
+    - [Dégradé dans l'espace de couleur OkLAB](#dégradé-dans-lespace-de-couleur-oklab)
+  - [4 étoiles](#4-étoiles)
+    - [Mosaïque et Mosaïque Miroir](#mosaïque-et-mosaïque-miroir)
+    - [Fractale de Mandelbrot](#fractale-de-mandelbrot)
+    - [Dithering (tramage)](#dithering-tramage)
+  - [Effets rigolos](#effets-rigolos)
+    - [Matrix](#matrix)
+    - [Tri](#tri)
+    - [Water effect](#water-effect)
+
 ## 1 étoile
 
 ### Garder le vert et Échanger les canaux
